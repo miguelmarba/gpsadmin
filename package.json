@@ -1,0 +1,32 @@
+{
+  "name": "gpsadmin",
+  "version": "1.0.0",
+  "description": "BackeEnd de GMSAdmin",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "graphql-yoga": "^1.18.3",
+    "mongoose": "^5.9.7",
+    "nodemon": "^2.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miguelmarba/gpsadmin.git"
+  },
+  "keywords": [
+    "gps",
+    "admon",
+    "track"
+  ],
+  "author": "miguelmarba",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miguelmarba/gpsadmin/issues"
+  },
+  "homepage": "https://github.com/miguelmarba/gpsadmin#readme"
+}
