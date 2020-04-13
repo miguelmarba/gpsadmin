@@ -1,16 +1,24 @@
 scalar EmailAddress
 scalar URL
 scalar Upload
+directive @auth on FIELD_DEFINITION | FIELD
 
 type Query {
     getUsers: [User]!
     getSingleUser(id:ID!): User!
+    me: User!@auth
 }
 
 type Mutation {
-    createNewUser(data:UserInput!):User!
-    updateOneUser(id:ID!, data: UserInputUpdate): User!
-    deleteOneUser(id:ID!): String
+    createNewUser(data:UserInput!):User!@auth
+    updateOneUser(id:ID!, data: UserInputUpdate): User!@auth
+    deleteOneUser(id:ID!): String!@auth
+    login(email:EmailAddress!, password: String!): Auth!
+}
+
+type Auth {
+    token: String!
+    message: String!
 }
 
 type User {
@@ -18,7 +26,7 @@ type User {
     nombre: String!
     apellido_paterno: String!
     apellido_materno: String!
-    email: String!
+    email: EmailAddress!
     telefono: String!
     birth_date: String!
     gender:GENDERS

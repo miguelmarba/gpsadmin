@@ -1,4 +1,6 @@
 const { createUser, updateUser, deleteUser } = require('../../services/UserService');
+const authenticate = require('../../utils/authenticate');
+
 
 const createNewUser = async (_, { data }) => {
     const user = await createUser(data);
@@ -17,8 +19,17 @@ const deleteOneUser = async (_, { id }) => {
     return 'Author deleted';
 };
 
+const login = async (_, params) => {
+    const token = await authenticate(params).catch( e => { throw e; });
+    return {
+        token : token,
+        message: 'Login Successful'
+    };
+};
+
 module.exports = {
     createNewUser,
     updateOneUser,
-    deleteOneUser
+    deleteOneUser,
+    login
 };
