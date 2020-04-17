@@ -16,6 +16,9 @@ type Query {
     getLineaTransportes: [LineaTransporte]!
     getSingleLineaTransporte(id:ID!): LineaTransporte!
     getSearchLineaTransporte(nombre:String!): LineaTransporte!
+    getEquipoGps: [EquipoGps]!
+    getSingleEquipoGps(id:ID!): EquipoGps!
+    getSearchEquipoGps(descripcion:String!): EquipoGps!
 }
 
 type Mutation {
@@ -32,6 +35,9 @@ type Mutation {
     createNewLineaTransporte(data:LineaTransporteInput!): LineaTransporte!
     updateOneLineaTransporte(id:ID!, data: LineaTransporteInputUpdate): LineaTransporte!
     deleteOneLineaTransporte(id:ID!): String!
+    createNewEquipoGps(data:EquipoGpsInput!): EquipoGps!
+    updateOneEquipoGps(id:ID!, data: EquipoGpsInputUpdate): EquipoGps!
+    deleteOneEquipoGps(id:ID!): String!
 }
 
 type Auth {
