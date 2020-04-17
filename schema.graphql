@@ -7,6 +7,9 @@ type Query {
     getUsers: [User]!
     getSingleUser(id:ID!): User!
     me: User!@auth
+    getClientes: [Cliente]!
+    getSingleCliente(id:ID!): Cliente!
+    getSearchCliente(nombre:String!): Cliente!
 }
 
 type Mutation {
@@ -14,6 +17,9 @@ type Mutation {
     updateOneUser(id:ID!, data: UserInputUpdate): User!@auth
     deleteOneUser(id:ID!): String!@auth
     login(email:EmailAddress!, password: String!): Auth!
+    createNewCliente(data:ClienteInput!): Cliente!
+    updateOneCliente(id:ID!, data: ClienteInputUpdate): Cliente!
+    deleteOneCliente(id:ID!): String!
 }
 
 type Auth {
@@ -62,4 +68,291 @@ enum GENDERS{
     M
     F
     O
+}
+
+enum TIPOPERSONA{
+    FISICA
+    MORAL
+    O
+}
+
+type Cliente {
+    _id: ID!
+    tipo_persona:TIPOPERSONA!
+    nombre:String!
+    rfc: String
+    contacto:String!
+    email: EmailAddress!
+    telefono: String!
+    celular: String
+    cp: String!
+    direccion: String!
+    profile_pic:URL!
+}
+
+input ClienteInput {
+    tipo_persona:TIPOPERSONA!
+    nombre: String!
+    rfc: String
+    contacto:String
+    email: EmailAddress
+    telefono: String
+    celular: String
+    cp: String
+    direccion: String
+    profile_pic:URL
+}
+
+input ClienteInputUpdate {
+    tipo_persona:TIPOPERSONA
+    nombre: String
+    rfc: String
+    contacto:String
+    email: EmailAddress
+    telefono: String
+    celular: String
+    cp: String
+    direccion: String
+    profile_pic:URL
+    is_active: Boolean
+}
+
+type Operador {
+    _id: ID!
+    nombre: String!
+    apellido_paterno: String!
+    apellido_materno: String!
+    email: EmailAddress!
+    telefono: String!
+    celular: String!
+    birth_date: String!
+    gender:GENDERS
+    profile_pic:URL!
+}
+
+input OperadorInput{
+    nombre:String!
+    apellido_paterno:String!
+    apellido_materno:String!
+    email:EmailAddress
+    telefono: String
+    celular: String
+    password:String
+    birth_date:String
+    gender:GENDERS
+    profile_pic:URL
+}
+
+input OperadorInputUpdate{
+    nombre:String
+    apellido_paterno:String
+    apellido_materno:String
+    email:EmailAddress
+    telefono: String
+    celular: String
+    password:String
+    birth_date:String
+    gender:GENDERS
+    profile_pic:URL
+    is_active: Boolean
+}
+
+type LineaTransporte {
+    _id: ID!
+    nombre: String!
+    contacto: String!
+    email: EmailAddress!
+    telefono: String!
+    celular: String!
+    cp: String!
+    georeferenciax:String!
+    georeferenciay:String!
+    direccion:String!
+}
+
+input LineaTransporteInput {
+    nombre: String!
+    contacto: String
+    email: EmailAddress
+    telefono: String
+    celular: String
+    cp: String
+    georeferenciax:String
+    georeferenciay:String
+    direccion:String
+}
+
+input LineaTransporteInputUpdate {
+    nombre: String
+    contacto: String
+    email: EmailAddress
+    telefono: String
+    celular: String
+    cp: String
+    georeferenciax:String
+    georeferenciay:String
+    direccion:String
+    is_active: Boolean
+}
+
+type EquipoGps {
+    _id: ID!
+    descripcion: String!
+    marca: String!
+    modelo: String!
+    identificador: String!
+}
+
+input EquipoGpsInput {
+    descripcion: String!
+    marca: String
+    modelo: String
+    identificador: String
+}
+
+input EquipoGpsInputUpdate {
+    descripcion: String
+    marca: String
+    modelo: String
+    identificador: String
+    is_active: Boolean
+}
+
+enum TIPOUNIDAD{
+    TRAILER
+    TORTON
+    TRESCINCO
+    UNOCINCO
+    O
+}
+
+enum TIPOSERVICIO{
+    EXPRESS
+    NORMAL
+    O
+}
+
+enum TIPOMONITOREO{
+    DEDICADO
+    CUSTODIA
+    O
+}
+
+type Camion {
+    _id: ID!
+    descripcion: String!
+    placas: String!
+    modelo: String!
+    color: String!
+    cuenta_espejo: String!
+    tipo_unidad: TIPOUNIDAD!
+}
+
+input CamionInput {
+    descripcion: String!
+    placas: String
+    modelo: String
+    color: String
+    cuenta_espejo: String
+    tipo_unidad: TIPOUNIDAD
+}
+
+input CamionInputUpdate {
+    descripcion: String
+    placas: String
+    modelo: String
+    color: String
+    cuenta_espejo: String
+    tipo_unidad: TIPOUNIDAD
+    is_active: Boolean
+}
+
+type Caja {
+    _id: ID!
+    descripcion: String!
+    placas: String!
+    placas_americanas: String
+}
+
+type CajaInput {
+    descripcion: String!
+    placas: String!
+    placas_americanas: String
+}
+
+input CajaInputUpdate {
+    descripcion: String
+    placas: String
+    placas_americanas: String
+    is_active: Boolean
+}
+
+input StatusRuta {
+    _id: ID!
+    nombre: String!
+    descripcion: String!
+}
+
+input StatusRutaInput {
+    nombre: String!
+    descripcion: String
+}
+
+input StatusRutaInputUpdate {
+    nombre: String
+    descripcion: String
+    is_active: Boolean
+}
+
+type Ruta {
+    _id: ID!
+    identificador: String!
+    origen: String!
+    destino: String!
+    hora_salida: String!
+    hora_cita: String!
+    hora_llegada: String!
+    numero_sello_caja: String!
+    tipo_servicio: TIPOSERVICIO!
+    tipo_monitoreo: TIPOMONITOREO!
+}
+
+input RutaInput {
+    identificador: String!
+    origen: String!
+    destino: String!
+    hora_salida: String
+    hora_cita: String
+    hora_llegada: String
+    numero_sello_caja: String
+    tipo_servicio: TIPOSERVICIO
+    tipo_monitoreo: TIPOMONITOREO
+}
+
+input RutaInputUpdate {
+    identificador: String
+    origen: String
+    destino: String
+    hora_salida: String
+    hora_cita: String
+    hora_llegada: String
+    numero_sello_caja: String
+    tipo_servicio: TIPOSERVICIO
+    tipo_monitoreo: TIPOMONITOREO
+}
+
+type Perfil {
+    _id: ID!
+    nombre: String!
+    descripcion: String!
+}
+
+input PerfilInput {
+    nombre: String!
+    descripcion: String
+}
+
+input PerfilInputUpdate {
+    nombre: String
+    descripcion: String
 }

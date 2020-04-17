@@ -1,7 +1,6 @@
 const { createUser, updateUser, deleteUser } = require('../../services/UserService');
 const authenticate = require('../../utils/authenticate');
 
-
 const createNewUser = async (_, { data }) => {
     const user = await createUser(data);
     return user;
