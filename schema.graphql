@@ -10,6 +10,12 @@ type Query {
     getClientes: [Cliente]!
     getSingleCliente(id:ID!): Cliente!
     getSearchCliente(nombre:String!): Cliente!
+    getOperadores: [Operador]!
+    getSingleOperador(id:ID!): Operador!
+    getSearchOperador(nombre:String!): Operador!
+    getLineaTransportes: [LineaTransporte]!
+    getSingleLineaTransporte(id:ID!): LineaTransporte!
+    getSearchLineaTransporte(nombre:String!): LineaTransporte!
 }
 
 type Mutation {
@@ -20,6 +26,12 @@ type Mutation {
     createNewCliente(data:ClienteInput!): Cliente!
     updateOneCliente(id:ID!, data: ClienteInputUpdate): Cliente!
     deleteOneCliente(id:ID!): String!
+    createNewOperador(data:OperadorInput!): Operador!
+    updateOneOperador(id:ID!, data: OperadorInputUpdate): Operador!
+    deleteOneOperador(id:ID!): String!
+    createNewLineaTransporte(data:LineaTransporteInput!): LineaTransporte!
+    updateOneLineaTransporte(id:ID!, data: LineaTransporteInputUpdate): LineaTransporte!
+    deleteOneLineaTransporte(id:ID!): String!
 }
 
 type Auth {
@@ -137,7 +149,6 @@ input OperadorInput{
     email:EmailAddress
     telefono: String
     celular: String
-    password:String
     birth_date:String
     gender:GENDERS
     profile_pic:URL
@@ -150,7 +161,6 @@ input OperadorInputUpdate{
     email:EmailAddress
     telefono: String
     celular: String
-    password:String
     birth_date:String
     gender:GENDERS
     profile_pic:URL
