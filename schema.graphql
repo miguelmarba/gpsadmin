@@ -25,6 +25,9 @@ type Query {
     getCajas: [Caja]!
     getSingleCaja(id:ID!): Caja!
     getSearchCaja(descripcion:String!): Caja!
+    getStatusRuta: [StatusRuta]!
+    getSingleStatusRuta(id:ID!): StatusRuta!
+    getSearchStatusRuta(descripcion:String!): StatusRuta!
 }
 
 type Mutation {
@@ -50,6 +53,9 @@ type Mutation {
     createNewCaja(data:CajaInput!): Caja!
     updateOneCaja(id:ID!, data: CajaInputUpdate): Caja!
     deleteOneCaja(id:ID!): Caja!
+    createNewStatusRuta(data:StatusRutaInput!): StatusRuta!
+    updateOneStatusRuta(id:ID!, data: StatusRutaInputUpdate): StatusRuta!
+    deleteOneStatusRuta(id:ID!): StatusRuta!
 }
 
 type Auth {
@@ -315,7 +321,7 @@ input CajaInputUpdate {
     is_active: Boolean
 }
 
-input StatusRuta {
+type StatusRuta {
     _id: ID!
     nombre: String!
     descripcion: String!
@@ -334,7 +340,7 @@ input StatusRutaInputUpdate {
 
 type Ruta {
     _id: ID!
-    identificador: String!
+    folio: String!
     origen: String!
     destino: String!
     hora_salida: String!
@@ -346,7 +352,7 @@ type Ruta {
 }
 
 input RutaInput {
-    identificador: String!
+    folio: String!
     origen: String!
     destino: String!
     hora_salida: String
@@ -358,7 +364,7 @@ input RutaInput {
 }
 
 input RutaInputUpdate {
-    identificador: String
+    folio: String
     origen: String
     destino: String
     hora_salida: String
