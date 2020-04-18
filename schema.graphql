@@ -22,6 +22,9 @@ type Query {
     getCamiones: [Camion]!
     getSingleCamion(id:ID!): Camion!
     getSearchCamion(descripcion:String!): Camion!
+    getCajas: [Caja]!
+    getSingleCaja(id:ID!): Caja!
+    getSearchCaja(descripcion:String!): Caja!
 }
 
 type Mutation {
@@ -44,6 +47,9 @@ type Mutation {
     createNewCamion(data:CamionInput!): Camion!
     updateOneCamion(id:ID!, data: CamionInputUpdate): Camion!
     deleteOneCamion(id:ID!): Camion!
+    createNewCaja(data:CajaInput!): Caja!
+    updateOneCaja(id:ID!, data: CajaInputUpdate): Caja!
+    deleteOneCaja(id:ID!): Caja!
 }
 
 type Auth {
@@ -296,7 +302,7 @@ type Caja {
     placas_americanas: String
 }
 
-type CajaInput {
+input CajaInput {
     descripcion: String!
     placas: String!
     placas_americanas: String
