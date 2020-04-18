@@ -19,6 +19,9 @@ type Query {
     getEquipoGps: [EquipoGps]!
     getSingleEquipoGps(id:ID!): EquipoGps!
     getSearchEquipoGps(descripcion:String!): EquipoGps!
+    getCamiones: [Camion]!
+    getSingleCamion(id:ID!): Camion!
+    getSearchCamion(descripcion:String!): Camion!
 }
 
 type Mutation {
@@ -38,6 +41,9 @@ type Mutation {
     createNewEquipoGps(data:EquipoGpsInput!): EquipoGps!
     updateOneEquipoGps(id:ID!, data: EquipoGpsInputUpdate): EquipoGps!
     deleteOneEquipoGps(id:ID!): String!
+    createNewCamion(data:CamionInput!): Camion!
+    updateOneCamion(id:ID!, data: CamionInputUpdate): Camion!
+    deleteOneCamion(id:ID!): Camion!
 }
 
 type Auth {
