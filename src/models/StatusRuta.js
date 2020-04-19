@@ -9,7 +9,7 @@ const StatusRutaSchema = new Schema({
     },
     descripcion: {
         type: String,
-        required: true
+        required: false
     },
     is_active: {
         type: Boolean,

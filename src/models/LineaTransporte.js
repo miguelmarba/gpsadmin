@@ -25,16 +25,20 @@ const LineaTransporteSchema = new Schema({
         required: false
     },
     cp: {
-        type: String
+        type: String,
+        required: false
     },
     georeferenciax: {
-        type: String
+        type: String,
+        required: false
     },
     georeferenciay: {
-        type: String
+        type: String,
+        required: false
     },
     direccion: {
-        type: Date
+        type: String,
+        required: false
     },
     is_active: {
         type: Boolean,

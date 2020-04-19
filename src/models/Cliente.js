@@ -36,7 +36,7 @@ const ClienteSchema = new Schema({
         type: String
     },
     direccion: {
-        type: Date
+        type: String
     },
     is_active: {
         type: Boolean,

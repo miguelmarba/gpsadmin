@@ -25,7 +25,8 @@ const CamionSchema = new Schema({
     },
     tipo_unidad: {
         type: String,
-        enum: ['TRAILER', 'TORTON', 'TRESCINCO', 'UNOCINCO', 'O'] 
+        enum: ['TRAILER', 'TORTON', 'TRESCINCO', 'UNOCINCO', 'O'], 
+        required: false
     },
     is_active: {
         type: Boolean,

@@ -1,4 +1,4 @@
-const { createOperador, updateOperador, deleteOperador } = require('../../services/UserService');
+const { createOperador, updateOperador, deleteOperador } = require('../../services/OperadorService');
 
 const createNewOperador= async (_, { data }) => {
     const operador = await createOperador(data);

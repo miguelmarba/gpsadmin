@@ -119,15 +119,15 @@ type Cliente {
     rfc: String
     contacto:String!
     email: EmailAddress!
-    telefono: String!
+    telefono: String
     celular: String
-    cp: String!
-    direccion: String!
+    cp: String
+    direccion: String
     profile_pic:URL!
 }
 
 input ClienteInput {
-    tipo_persona:TIPOPERSONA!
+    tipo_persona:TIPOPERSONA
     nombre: String!
     rfc: String
     contacto:String
@@ -197,11 +197,11 @@ type LineaTransporte {
     contacto: String!
     email: EmailAddress!
     telefono: String!
-    celular: String!
-    cp: String!
-    georeferenciax:String!
-    georeferenciay:String!
-    direccion:String!
+    celular: String
+    cp: String
+    georeferenciax:String
+    georeferenciay:String
+    direccion:String
 }
 
 input LineaTransporteInput {
@@ -277,9 +277,9 @@ type Camion {
     descripcion: String!
     placas: String!
     modelo: String!
-    color: String!
-    cuenta_espejo: String!
-    tipo_unidad: TIPOUNIDAD!
+    color: String
+    cuenta_espejo: String
+    tipo_unidad: TIPOUNIDAD
 }
 
 input CamionInput {
