@@ -9,7 +9,7 @@ type Query {
     me: User!@auth
     getClientes: [Cliente]!
     getSingleCliente(id:ID!): Cliente!
-    getSearchCliente(nombre:String!): Cliente!
+    getSearchCliente(nombre:String!): [Cliente]!
     getOperadores: [Operador]!
     getSingleOperador(id:ID!): Operador!
     getSearchOperador(nombre:String!): Operador!

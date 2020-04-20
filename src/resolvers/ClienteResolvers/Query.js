@@ -12,9 +12,8 @@ const getSingleCliente = async (_, { id }) => {
 };
 
 const getSearchCliente = async (_, { nombre }) => {
-    const cliente = await getClienteByNombre(nombre);
-    if(!cliente) throw new Error('No results');
-    return cliente;
+    const clientes = await getClienteByNombre(nombre);
+    return clientes;
 };
 
 module.exports = {

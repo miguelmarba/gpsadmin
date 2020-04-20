@@ -14,7 +14,7 @@ const updateCliente = (id, data) => Cliente.findByIdAndUpdate({
     ...data
 }, {new: true});
 const getClienteByEmail = (email) => Cliente.findOne({email, is_active: true});
-const getClienteByNombre = (nombre) => Cliente.findOne({nombre, is_active: true});
+const getClienteByNombre = (nombre) => Cliente.find({nombre: {$regex: nombre, $options: 'i'}, is_active: true});
 
 module.exports = {
     getAllClientes,
