@@ -15,7 +15,7 @@ type Query {
     getSearchOperador(nombre:String!): Operador!
     getLineaTransportes: [LineaTransporte]!
     getSingleLineaTransporte(id:ID!): LineaTransporte!
-    getSearchLineaTransporte(nombre:String!): LineaTransporte!
+    getSearchLineaTransporte(nombre:String!): [LineaTransporte]!
     getEquipoGps: [EquipoGps]!
     getSingleEquipoGps(id:ID!): EquipoGps!
     getSearchEquipoGps(descripcion:String!): EquipoGps!
@@ -28,6 +28,9 @@ type Query {
     getStatusRuta: [StatusRuta]!
     getSingleStatusRuta(id:ID!): StatusRuta!
     getSearchStatusRuta(descripcion:String!): StatusRuta!
+    getUbicaciones: [Ubicacion]!
+    getSingleUbicacion(id:ID!): Ubicacion!
+    getSearchUbicacion(descripcion:String!): [Ubicacion]!
 }
 
 type Mutation {
@@ -56,6 +59,9 @@ type Mutation {
     createNewStatusRuta(data:StatusRutaInput!): StatusRuta!
     updateOneStatusRuta(id:ID!, data: StatusRutaInputUpdate): StatusRuta!
     deleteOneStatusRuta(id:ID!): StatusRuta!
+    createNewUbicacion(data:UbicacionInput!): Ubicacion!
+    updateOneUbicacion(id:ID!, data: UbicacionInputUpdate): Ubicacion!
+    deleteOneUbicacion(id:ID!): Ubicacion!
 }
 
 type Auth {
@@ -389,4 +395,46 @@ input PerfilInput {
 input PerfilInputUpdate {
     nombre: String
     descripcion: String
+}
+
+type Ubicacion {
+    _id: ID!
+    nombre: String!
+    cp: String!
+    calle: String
+    numero_exterior: String
+    numero_interior: String
+    estado: String
+    municipio: String
+    pais: String
+    georeferenciax: String
+    georeferenciay: String
+}
+
+input UbicacionInput {
+    _id: ID!
+    nombre: String!
+    cp: String!
+    calle: String
+    numero_exterior: String
+    numero_interior: String
+    estado: String
+    municipio: String
+    pais: String
+    georeferenciax: String
+    georeferenciay: String
+}
+
+input UbicacionInputUpdate {
+    _id: ID!
+    nombre: String!
+    cp: String
+    calle: String
+    numero_exterior: String
+    numero_interior: String
+    estado: String
+    municipio: String
+    pais: String
+    georeferenciax: String
+    georeferenciay: String
 }

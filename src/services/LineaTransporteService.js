@@ -14,7 +14,7 @@ const updateLineaTransporte = (id, data) => LineaTransporte.findByIdAndUpdate({
     ...data
 }, {new: true});
 const getLineaTransporteByEmail = (email) => LineaTransporte.findOne({email, is_active: true});
-const getLineaTransporteByNombre = (nombre) => LineaTransporte.findOne({nombre, is_active: true});
+const getLineaTransporteByNombre = (nombre) => LineaTransporte.find({nombre: {$regex: nombre, $options: 'i'}, is_active: true});
 
 module.exports = {
     getAllLineaTransportes,

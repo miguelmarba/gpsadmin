@@ -6,6 +6,7 @@ const EquipoGpsResolver = require('./EquipoGpsResolvers');
 const CamionResolver = require('./CamionResolvers');
 const CajaResolver = require('./CajaResolvers');
 const StatusRuta = require('./StatusRutaResolvers');
+const Ubicacion = require('./UbicacionResolvers');
 
 const { EmailAddressResolver, URLResolver } = require('graphql-scalars');
 
@@ -20,7 +21,8 @@ module.exports = {
         ...EquipoGpsResolver.Query,
         ...CamionResolver.Query,
         ...CajaResolver.Query,
-        ...StatusRuta.Query
+        ...StatusRuta.Query,
+        ...Ubicacion.Query
     },
     Mutation: {
         ...UserResolver.Mutation,
@@ -30,6 +32,7 @@ module.exports = {
         ...EquipoGpsResolver.Mutation,
         ...CamionResolver.Mutation,
         ...CajaResolver.Mutation,
-        ...StatusRuta.Mutation
+        ...StatusRuta.Mutation,
+        ...Ubicacion.Mutation
     }
 };
