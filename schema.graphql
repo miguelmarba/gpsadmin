@@ -412,7 +412,6 @@ type Ubicacion {
 }
 
 input UbicacionInput {
-    _id: ID!
     nombre: String!
     cp: String!
     calle: String
@@ -426,7 +425,6 @@ input UbicacionInput {
 }
 
 input UbicacionInputUpdate {
-    _id: ID!
     nombre: String!
     cp: String
     calle: String

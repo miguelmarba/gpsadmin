@@ -1,4 +1,4 @@
-const { createUbicacion, updateUbicacion, deleteUbicacion } = require('../../services/CajaService');
+const { createUbicacion, updateUbicacion, deleteUbicacion } = require('../../services/UbicacionService');
 
 const createNewUbicacion = async (_, { data }) => {
     const caja = await createUbicacion(data);
