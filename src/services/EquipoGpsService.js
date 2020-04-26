@@ -13,7 +13,7 @@ const updateEquipoGps = (id, data) => EquipoGps.findByIdAndUpdate({
 }, {
     ...data
 }, {new: true});
-const getEquipoGpsByDescripcion = (descripcion) => EquipoGps.findOne({descripcion, is_active: true});
+const getEquipoGpsByDescripcion = (descripcion) => EquipoGps.find({descripcion: {$regex: descripcion, $options: 'i'}, is_active: true});
 
 module.exports = {
     createEquipoGps,

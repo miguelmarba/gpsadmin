@@ -17,7 +17,7 @@ const EquipoGpsSchema = new Schema({
     },
     identificador: {
         type: String,
-        required: true,
+        required: false,
         unique: true
     },
     is_active: {

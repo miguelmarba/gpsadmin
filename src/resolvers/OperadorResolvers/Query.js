@@ -13,7 +13,6 @@ const getSingleOperador = async (_, { id }) => {
 
 const getSearchOperador = async (_, { nombre }) => {
     const operadores = await getOperadorByNombre(nombre);
-    if(!operadores) throw new Error('No results');
     return operadores;
 };
 

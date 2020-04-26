@@ -13,7 +13,7 @@ const updateCaja = (id, data) => Caja.findByIdAndUpdate({
 }, {
     ...data
 }, {new: true});
-const getCajaByDescripcion = (descripcion) => Caja.findOne({descripcion, is_active: true});
+const getCajaByDescripcion = (descripcion) => Caja.find({descripcion: {$regex: descripcion, $options: 'i'}, is_active: true});
 
 module.exports = {
     createCaja,

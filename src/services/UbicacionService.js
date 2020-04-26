@@ -13,7 +13,7 @@ const updateUbicacion = (id, data) => Ubicacion.findByIdAndUpdate({
 }, {
     ...data
 }, {new: true});
-const getUbicacionByDescripcion = (descripcion) => Ubicacion.findOne({descripcion: {$regex: descripcion, $options: 'i'}, is_active: true});
+const getUbicacionByNombre = (nombre) => Ubicacion.find({nombre: {$regex: nombre, $options: 'i'}, is_active: true});
 
 module.exports = {
     createUbicacion,
@@ -21,5 +21,5 @@ module.exports = {
     getOneUbicacion,
     deleteUbicacion,
     updateUbicacion,
-    getUbicacionByDescripcion
+    getUbicacionByNombre
 };

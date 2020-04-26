@@ -12,9 +12,8 @@ const getSingleCamion = async (_, { id }) => {
 };
 
 const getSearchCamion = async (_, { descripcion }) => {
-    const camion = await getCamionByDescripcion(descripcion);
-    if(!camion) throw new Error('No results');
-    return camion;
+    const camiones = await getCamionByDescripcion(descripcion);
+    return camiones;
 };
 
 module.exports = {

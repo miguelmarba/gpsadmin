@@ -13,7 +13,7 @@ const updateCamion = (id, data) => Camion.findByIdAndUpdate({
 }, {
     ...data
 }, {new: true});
-const getCamionByDescripcion = (descripcion) => Camion.findOne({descripcion, is_active: true});
+const getCamionByDescripcion = (descripcion) => Camion.find({descripcion: {$regex: descripcion, $options: 'i'}, is_active: true});
 
 module.exports = {
     createCamion,

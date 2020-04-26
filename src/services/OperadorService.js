@@ -14,7 +14,7 @@ const updateOperador = (id, data) => Operador.findByIdAndUpdate({
     ...data
 }, {new: true});
 const getOperadorByEmail = (email) => Operador.findOne({email, is_active: true});
-const getOperadorByNombre = (nombre) => Operador.findOne({nombre, is_active: true});
+const getOperadorByNombre = (nombre) => Operador.find({nombre: {$regex: nombre, $options: 'i'}, is_active: true});
 
 module.exports = {
     getAllOperadores,

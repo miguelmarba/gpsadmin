@@ -12,25 +12,25 @@ type Query {
     getSearchCliente(nombre:String!): [Cliente]!
     getOperadores: [Operador]!
     getSingleOperador(id:ID!): Operador!
-    getSearchOperador(nombre:String!): Operador!
+    getSearchOperador(nombre:String!): [Operador]!
     getLineaTransportes: [LineaTransporte]!
     getSingleLineaTransporte(id:ID!): LineaTransporte!
     getSearchLineaTransporte(nombre:String!): [LineaTransporte]!
     getEquipoGps: [EquipoGps]!
     getSingleEquipoGps(id:ID!): EquipoGps!
-    getSearchEquipoGps(descripcion:String!): EquipoGps!
+    getSearchEquipoGps(descripcion:String!): [EquipoGps]!
     getCamiones: [Camion]!
     getSingleCamion(id:ID!): Camion!
-    getSearchCamion(descripcion:String!): Camion!
+    getSearchCamion(descripcion:String!): [Camion]!
     getCajas: [Caja]!
     getSingleCaja(id:ID!): Caja!
-    getSearchCaja(descripcion:String!): Caja!
+    getSearchCaja(descripcion:String!): [Caja]!
     getStatusRuta: [StatusRuta]!
     getSingleStatusRuta(id:ID!): StatusRuta!
     getSearchStatusRuta(descripcion:String!): StatusRuta!
     getUbicaciones: [Ubicacion]!
     getSingleUbicacion(id:ID!): Ubicacion!
-    getSearchUbicacion(descripcion:String!): [Ubicacion]!
+    getSearchUbicacion(nombre:String!): [Ubicacion]!
 }
 
 type Mutation {
@@ -166,10 +166,10 @@ type Operador {
     apellido_materno: String!
     email: EmailAddress!
     telefono: String!
-    celular: String!
-    birth_date: String!
+    celular: String
+    birth_date: String
     gender:GENDERS
-    profile_pic:URL!
+    profile_pic:URL
 }
 
 input OperadorInput{
@@ -240,7 +240,7 @@ type EquipoGps {
     descripcion: String!
     marca: String!
     modelo: String!
-    identificador: String!
+    identificador: String
 }
 
 input EquipoGpsInput {
