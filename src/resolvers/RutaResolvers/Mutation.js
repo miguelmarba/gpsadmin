@@ -20,6 +20,6 @@ const deleteOneRuta = async (_, { id }) => {
 
 module.exports = {
     createNewRuta,
-    updateOneRuta,
-    deleteOneRuta,
+    //updateOneRuta,
+    //deleteOneRuta,
 };
