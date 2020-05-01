@@ -38,6 +38,10 @@ const ClienteSchema = new Schema({
     direccion: {
         type: String
     },
+    rutas:{
+        type: [Schema.Types.ObjectId],
+        ref:'Ruta'
+    },
     is_active: {
         type: Boolean,
         default: true

@@ -2,6 +2,8 @@ const { getAllRutas, getOneRuta, getRutaByFolio } = require('../../services/Ruta
 
 const getRutas = async () => {
     const rutas = await getAllRutas();
+    console.log('Estoy en getRutas');
+    console.log(rutas);
     return rutas;
 };
 

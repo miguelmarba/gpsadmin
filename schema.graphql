@@ -133,6 +133,7 @@ type Cliente {
     cp: String
     direccion: String
     profile_pic:URL!
+    rutas: [Ruta]!
 }
 
 input ClienteInput {
@@ -350,11 +351,11 @@ input StatusRutaInputUpdate {
 type Ruta {
     _id: ID!
     folio: String
-    cliente: Cliente!
+    cliente: Cliente
     origen: Ubicacion
-    destino: Ubicacion!
-    hora_salida: String!
-    hora_cita: String!
+    destino: Ubicacion
+    hora_salida: String
+    hora_cita: String
     lineatransporte: LineaTransporte
     operador: Operador
     camion: Camion

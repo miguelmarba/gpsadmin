@@ -9,15 +9,15 @@ const RutaSchema = new Schema({
     },
     cliente: {
         type: Schema.Types.ObjectId,
-        ref: 'Cliente'
+        ref: 'cliente'
     },
     origen: {
         type: Schema.Types.ObjectId,
-        ref: 'Ubicacion'
+        ref: 'ubicacion'
     },
     destino: {
         type: Schema.Types.ObjectId,
-        ref: 'Ubicacion'
+        ref: 'ubicacion'
     },
     hora_salida: {
         type: String,
@@ -33,23 +33,23 @@ const RutaSchema = new Schema({
     },
     lineatransporte: {
         type: Schema.Types.ObjectId,
-        ref: 'LineaTransporte'
+        ref: 'linea_trasporte'
     },
     operador: {
         type: Schema.Types.ObjectId,
-        ref: 'Operador'
+        ref: 'operador'
     },
     camion: {
         type: Schema.Types.ObjectId,
-        ref: 'Camion'
+        ref: 'camion'
     },
     caja: {
         type: Schema.Types.ObjectId,
-        ref: 'Caja'
+        ref: 'caja'
     },
     gps: {
         type: Schema.Types.ObjectId,
-        ref: 'EquipoGps'
+        ref: 'equipo_gps'
     },
     numero_sello_caja: {
         type: String,
