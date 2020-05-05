@@ -48,4 +48,4 @@ const LineaTransporteSchema = new Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('linea_trasporte', LineaTransporteSchema);
+module.exports = mongoose.model('linea_transporte', LineaTransporteSchema);

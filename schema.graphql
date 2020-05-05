@@ -33,6 +33,7 @@ type Query {
     getSearchUbicacion(nombre:String!): [Ubicacion]!
     getRutas: [Ruta]!
     getSingleRuta(id:ID!): Ruta!
+    getSearchRuta(nombre:String!): [Ruta]!
 }
 
 type Mutation {
@@ -65,6 +66,8 @@ type Mutation {
     updateOneUbicacion(id:ID!, data: UbicacionInputUpdate): Ubicacion!
     deleteOneUbicacion(id:ID!): Ubicacion!
     createNewRuta(data:RutaInput!): Ruta!
+    updateOneRuta(id:ID!, data: RutaInputUpdate): Ruta!
+    deleteOneRuta(id:ID!): Ruta!
 }
 
 type Auth {
@@ -354,14 +357,14 @@ type Ruta {
     cliente: Cliente
     origen: Ubicacion
     destino: Ubicacion
-    hora_salida: String
-    hora_cita: String
-    lineatransporte: LineaTransporte
+    fecha_salida: String
+    fecha_cita: String
+    linea_transporte: LineaTransporte
     operador: Operador
     camion: Camion
     caja: Caja
-    gps: EquipoGps
-    hora_llegada: String
+    equipo_gps: EquipoGps
+    fecha_llegada: String
     numero_sello_caja: String
     tipo_servicio: TIPOSERVICIO
     tipo_monitoreo: TIPOMONITOREO
@@ -372,14 +375,14 @@ input RutaInput {
     cliente: ID!
     origen: ID
     destino: ID
-    hora_salida: String
-    hora_cita: String
-    lineatransporte: ID
+    fecha_salida: String
+    fecha_cita: String
+    linea_transporte: ID
     operador: ID
     camion: ID
     caja: ID
-    gps: ID
-    hora_llegada: String
+    equipo_gps: ID
+    fecha_llegada: String
     numero_sello_caja: String
     tipo_servicio: TIPOSERVICIO
     tipo_monitoreo: TIPOMONITOREO
@@ -390,14 +393,14 @@ input RutaInputUpdate {
     cliente: ID
     origen: ID
     destino: ID
-    hora_salida: String
-    hora_cita: String
-    hora_llegada: String
-    lineatransporte: ID
+    fecha_salida: String
+    fecha_cita: String
+    fecha_llegada: String
+    linea_transporte: ID
     operador: ID
     camion: ID
     caja: ID
-    gps: ID
+    equipo_gps: ID
     numero_sello_caja: String
     tipo_servicio: TIPOSERVICIO
     tipo_monitoreo: TIPOMONITOREO

@@ -19,21 +19,21 @@ const RutaSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'ubicacion'
     },
-    hora_salida: {
+    fecha_salida: {
         type: String,
         required: false
     },
-    hora_cita: {
+    fecha_cita: {
         type: String,
         required: false
     }, 
-    hora_llegada: {
+    fecha_llegada: {
         type: String,
         required: false
     },
-    lineatransporte: {
+    linea_transporte: {
         type: Schema.Types.ObjectId,
-        ref: 'linea_trasporte'
+        ref: 'linea_transporte'
     },
     operador: {
         type: Schema.Types.ObjectId,
@@ -47,7 +47,7 @@ const RutaSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'caja'
     },
-    gps: {
+    equipo_gps: {
         type: Schema.Types.ObjectId,
         ref: 'equipo_gps'
     },

@@ -22,5 +22,5 @@ const getSearchRuta = async (_, { folio }) => {
 module.exports = {
     getRutas,
     getSingleRuta,
-    //getSearchRuta
+    getSearchRuta
 };
