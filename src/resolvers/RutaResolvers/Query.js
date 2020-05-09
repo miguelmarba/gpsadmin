@@ -1,9 +1,7 @@
-const { getAllRutas, getOneRuta, getRutaByFolio } = require('../../services/RutaService');
+const { getAllRutas, getOneRuta, getRutaByFolio, getRutasByDates } = require('../../services/RutaService');
 
 const getRutas = async () => {
     const rutas = await getAllRutas();
-    console.log('Estoy en getRutas');
-    console.log(rutas);
     return rutas;
 };
 
@@ -19,8 +17,14 @@ const getSearchRuta = async (_, { folio }) => {
     return ruta;
 };
 
+const getSearchRutasByDates = async (_, { begin, end }) => {
+    const rutas = await getRutasByDates(begin, end);
+    return rutas;
+};
+
 module.exports = {
     getRutas,
     getSingleRuta,
-    getSearchRuta
+    getSearchRuta,
+    getSearchRutasByDates
 };

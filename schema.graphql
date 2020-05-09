@@ -34,6 +34,7 @@ type Query {
     getRutas: [Ruta]!
     getSingleRuta(id:ID!): Ruta!
     getSearchRuta(nombre:String!): [Ruta]!
+    getSearchRutasByDates(begin:String!, end:String!): [Ruta]!
 }
 
 type Mutation {

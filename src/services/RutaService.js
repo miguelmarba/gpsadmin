@@ -22,11 +22,17 @@ const updateRuta = (id, data) => Ruta.findByIdAndUpdate({
 
 const getRutaByFolio = (folio) => Ruta.findOne({folio, is_active: true});
 
+const getRutasByDates = (begin, end) => Ruta.find({
+    fecha_salida: {$gte:begin, $lte:end},
+    is_active: true
+}).populate('cliente').populate('origen').populate('destino').populate('linea_transporte').populate('operador').populate('camion').populate('caja').populate('equipo_gps');
+
 module.exports = {
     createRuta,
     getAllRutas,
     getOneRuta,
     deleteRuta,
     updateRuta,
-    getRutaByFolio
+    getRutaByFolio,
+    getRutasByDates
 };
