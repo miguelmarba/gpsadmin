@@ -25,7 +25,7 @@ const schema = makeExecutableSchema({
     typeDefs,
     resolvers,
     schemaDirectives: {
-
+        AuthDirective
     }
 });
 const server = new GraphQLServer({

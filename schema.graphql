@@ -57,7 +57,7 @@ type Mutation {
     createNewCamion(data:CamionInput!): Camion!
     updateOneCamion(id:ID!, data: CamionInputUpdate): Camion!
     deleteOneCamion(id:ID!): Camion!
-    createNewCaja(data:CajaInput!): Caja!
+    createNewCaja(data:CajaInput!): Caja!@auth
     updateOneCaja(id:ID!, data: CajaInputUpdate): Caja!
     deleteOneCaja(id:ID!): Caja!
     createNewStatusRuta(data:StatusRutaInput!): StatusRuta!
@@ -66,7 +66,7 @@ type Mutation {
     createNewUbicacion(data:UbicacionInput!): Ubicacion!
     updateOneUbicacion(id:ID!, data: UbicacionInputUpdate): Ubicacion!
     deleteOneUbicacion(id:ID!): Ubicacion!
-    createNewRuta(data:RutaInput!): Ruta!
+    createNewRuta(data:RutaInput!): Ruta!@auth
     updateOneRuta(id:ID!, data: RutaInputUpdate): Ruta!
     deleteOneRuta(id:ID!): Ruta!
 }
@@ -369,6 +369,8 @@ type Ruta {
     numero_sello_caja: String
     tipo_servicio: TIPOSERVICIO
     tipo_monitoreo: TIPOMONITOREO
+    status_ruta: StatusRuta
+    user: User
 }
 
 input RutaInput {
@@ -387,6 +389,8 @@ input RutaInput {
     numero_sello_caja: String
     tipo_servicio: TIPOSERVICIO
     tipo_monitoreo: TIPOMONITOREO
+    status_ruta: ID
+    user: ID
 }
 
 input RutaInputUpdate {
@@ -405,6 +409,7 @@ input RutaInputUpdate {
     numero_sello_caja: String
     tipo_servicio: TIPOSERVICIO
     tipo_monitoreo: TIPOMONITOREO
+    status_ruta: ID
 }
 
 type Perfil {

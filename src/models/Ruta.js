@@ -66,6 +66,14 @@ const RutaSchema = new Schema({
     is_active: {
         type: Boolean,
         default: true
+    },
+    status_ruta: {
+        type: Schema.Types.ObjectId,
+        ref: 'status_ruta'
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'user',
     }
 }, {
     timestamps: true
