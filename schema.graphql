@@ -339,16 +339,19 @@ type StatusRuta {
     _id: ID!
     nombre: String!
     descripcion: String!
+    color: String
 }
 
 input StatusRutaInput {
     nombre: String!
     descripcion: String
+    color: String
 }
 
 input StatusRutaInputUpdate {
     nombre: String
     descripcion: String
+    color: String
     is_active: Boolean
 }
 
