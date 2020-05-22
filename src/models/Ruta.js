@@ -74,6 +74,10 @@ const RutaSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'user',
+    },
+    tracking:{
+        type: [Schema.Types.ObjectId],
+        ref:'tracking'
     }
 }, {
     timestamps: true

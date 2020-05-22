@@ -8,6 +8,7 @@ const Caja = require('./Caja');
 const StatusRuta = require('./StatusRuta');
 const Ruta = require('./Ruta');
 const Ubicacion = require('./Ubicacion');
+const Tracking = require('./Tracking');
 
 module.exports = {
     Users,
@@ -19,5 +20,6 @@ module.exports = {
     Caja,
     StatusRuta,
     Ruta,
-    Ubicacion
+    Ubicacion,
+    Tracking
 };

@@ -35,6 +35,9 @@ type Query {
     getSingleRuta(id:ID!): Ruta!
     getSearchRuta(nombre:String!): [Ruta]!
     getSearchRutasByDates(begin:String!, end:String!): [Ruta]!
+    getTracking: [Tracking]!
+    getSingleTracking(id:ID!): [Tracking]!
+    getSearchTrackingByDates(begin:String!, end:String!): [Tracking]!
 }
 
 type Mutation {
@@ -67,8 +70,11 @@ type Mutation {
     updateOneUbicacion(id:ID!, data: UbicacionInputUpdate): Ubicacion!
     deleteOneUbicacion(id:ID!): Ubicacion!
     createNewRuta(data:RutaInput!): Ruta!@auth
-    updateOneRuta(id:ID!, data: RutaInputUpdate): Ruta!
-    deleteOneRuta(id:ID!): Ruta!
+    updateOneRuta(id:ID!, data: RutaInputUpdate): Ruta!@auth
+    deleteOneRuta(id:ID!): Ruta!@auth
+    createNewTracking(data:TrackingInput!): Tracking!@auth
+    updateOneTracking(id:ID!, data: TrackingInputUpdate): Tracking!@auth
+    deleteOneTracking(id:ID!): Tracking!@auth
 }
 
 type Auth {
@@ -374,6 +380,7 @@ type Ruta {
     tipo_monitoreo: TIPOMONITOREO
     status_ruta: StatusRuta
     user: User
+    tracking:[Tracking]
 }
 
 input RutaInput {
@@ -469,4 +476,27 @@ input UbicacionInputUpdate {
     pais: String
     georeferenciax: String
     georeferenciay: String
+}
+
+type Tracking {
+    _id: ID!
+    ruta: Ruta
+    user: User
+    status_ruta: StatusRuta
+    comentarios: String
+    is_active: Boolean
+}
+
+input TrackingInput {
+    ruta: ID!
+    status_ruta: ID
+    comentarios: String!
+    is_active: Boolean
+}
+
+input TrackingInputUpdate {
+    ruta: ID
+    status_ruta: ID
+    comentarios: String
+    is_active: Boolean
 }
