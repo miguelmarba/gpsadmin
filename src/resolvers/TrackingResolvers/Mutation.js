@@ -11,6 +11,9 @@ const createNewTracking = async (_, { data }, { user }) => {
 
     const ruta = await getOneRuta(data.ruta);
     ruta.tracking.push(tracking._id);
+    if(data.status_ruta){
+        ruta.status_ruta = data.status_ruta;
+    }
     ruta.save();
     return tracking;
 };
