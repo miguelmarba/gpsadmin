@@ -45,30 +45,30 @@ type Mutation {
     updateOneUser(id:ID!, data: UserInputUpdate): User!@auth
     deleteOneUser(id:ID!): String!@auth
     login(email:EmailAddress!, password: String!): Auth!
-    createNewCliente(data:ClienteInput!): Cliente!
-    updateOneCliente(id:ID!, data: ClienteInputUpdate): Cliente!
-    deleteOneCliente(id:ID!): String!
-    createNewOperador(data:OperadorInput!): Operador!
-    updateOneOperador(id:ID!, data: OperadorInputUpdate): Operador!
-    deleteOneOperador(id:ID!): String!
-    createNewLineaTransporte(data:LineaTransporteInput!): LineaTransporte!
-    updateOneLineaTransporte(id:ID!, data: LineaTransporteInputUpdate): LineaTransporte!
-    deleteOneLineaTransporte(id:ID!): String!
-    createNewEquipoGps(data:EquipoGpsInput!): EquipoGps!
-    updateOneEquipoGps(id:ID!, data: EquipoGpsInputUpdate): EquipoGps!
-    deleteOneEquipoGps(id:ID!): String!
-    createNewCamion(data:CamionInput!): Camion!
-    updateOneCamion(id:ID!, data: CamionInputUpdate): Camion!
-    deleteOneCamion(id:ID!): Camion!
+    createNewCliente(data:ClienteInput!): Cliente!@auth
+    updateOneCliente(id:ID!, data: ClienteInputUpdate): Cliente!@auth
+    deleteOneCliente(id:ID!): String!@auth
+    createNewOperador(data:OperadorInput!): Operador!@auth
+    updateOneOperador(id:ID!, data: OperadorInputUpdate): Operador!@auth
+    deleteOneOperador(id:ID!): String!@auth
+    createNewLineaTransporte(data:LineaTransporteInput!): LineaTransporte!@auth
+    updateOneLineaTransporte(id:ID!, data: LineaTransporteInputUpdate): LineaTransporte!@auth
+    deleteOneLineaTransporte(id:ID!): String!@auth
+    createNewEquipoGps(data:EquipoGpsInput!): EquipoGps!@auth
+    updateOneEquipoGps(id:ID!, data: EquipoGpsInputUpdate): EquipoGps!@auth
+    deleteOneEquipoGps(id:ID!): String!@auth
+    createNewCamion(data:CamionInput!): Camion!@auth
+    updateOneCamion(id:ID!, data: CamionInputUpdate): Camion!@auth
+    deleteOneCamion(id:ID!): Camion!@auth
     createNewCaja(data:CajaInput!): Caja!@auth
-    updateOneCaja(id:ID!, data: CajaInputUpdate): Caja!
-    deleteOneCaja(id:ID!): Caja!
-    createNewStatusRuta(data:StatusRutaInput!): StatusRuta!
-    updateOneStatusRuta(id:ID!, data: StatusRutaInputUpdate): StatusRuta!
-    deleteOneStatusRuta(id:ID!): StatusRuta!
-    createNewUbicacion(data:UbicacionInput!): Ubicacion!
-    updateOneUbicacion(id:ID!, data: UbicacionInputUpdate): Ubicacion!
-    deleteOneUbicacion(id:ID!): Ubicacion!
+    updateOneCaja(id:ID!, data: CajaInputUpdate): Caja!@auth
+    deleteOneCaja(id:ID!): Caja!@auth
+    createNewStatusRuta(data:StatusRutaInput!): StatusRuta!@auth
+    updateOneStatusRuta(id:ID!, data: StatusRutaInputUpdate): StatusRuta!@auth
+    deleteOneStatusRuta(id:ID!): StatusRuta!@auth
+    createNewUbicacion(data:UbicacionInput!): Ubicacion!@auth
+    updateOneUbicacion(id:ID!, data: UbicacionInputUpdate): Ubicacion!@auth
+    deleteOneUbicacion(id:ID!): Ubicacion!@auth
     createNewRuta(data:RutaInput!): Ruta!@auth
     updateOneRuta(id:ID!, data: RutaInputUpdate): Ruta!@auth
     deleteOneRuta(id:ID!): Ruta!@auth
