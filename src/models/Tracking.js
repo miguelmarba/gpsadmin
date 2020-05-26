@@ -22,6 +22,14 @@ const TrackingSchema = new Schema({
     is_active: {
         type: Boolean,
         default: true
+    },
+    created: {
+        type: String,
+        default: Date.now
+    },
+    updated: {
+        type: String,
+        default: Date.now
     }
 }, {
     timestamps: true

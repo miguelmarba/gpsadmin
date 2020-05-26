@@ -484,7 +484,9 @@ type Tracking {
     user: User
     status_ruta: StatusRuta
     comentarios: String
-    is_active: Boolean
+    is_active: Boolean,
+    created: String,
+    updated: String
 }
 
 input TrackingInput {

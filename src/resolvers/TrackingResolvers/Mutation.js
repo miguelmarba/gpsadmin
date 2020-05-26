@@ -1,10 +1,12 @@
-const { createTrack, updateTrack, deleteTrack } = require('../../services/TrackingService');
+const { createTrack, updateTrack, deleteTrack, getOneTracking } = require('../../services/TrackingService');
 const { getOneRuta } = require('../../services/RutaService');
 
 const createNewTracking = async (_, { data }, { user }) => {
     const dataComplete = {
         ...data,
-        user: `${user._id}`
+        user: `${user._id}`,
+        created: new Date(),
+        updated: new Date()
     };
     
     const tracking = await createTrack(dataComplete);
@@ -15,7 +17,8 @@ const createNewTracking = async (_, { data }, { user }) => {
         ruta.status_ruta = data.status_ruta;
     }
     ruta.save();
-    return tracking;
+    const populateTracking = await getOneTracking(tracking._id);
+    return populateTracking;
 };
 
 const updateOneTracking = async (_, { id, data }) => {
