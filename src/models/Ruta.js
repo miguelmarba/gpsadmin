@@ -57,11 +57,13 @@ const RutaSchema = new Schema({
     },
     tipo_servicio: {
         type: String,
-        enum: ['EXPRESS', 'NORMAL', 'O'] 
+        enum: ['EXPRESS', 'NORMAL', 'O'],
+        default: 'NORMAL' 
     },
     tipo_monitoreo: {
         type: String,
-        enum: ['DEDICADO', 'CUSTODIA', 'O'] 
+        enum: ['DEDICADO', 'CUSTODIA', 'O'],
+        default: 'O'  
     },
     is_active: {
         type: Boolean,
