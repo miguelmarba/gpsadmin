@@ -1,7 +1,11 @@
 const { createEquipoGps, updateEquipoGps, deleteEquipoGps } = require('../../services/EquipoGpsService');
 
-const createNewEquipoGps = async (_, { data }) => {
-    const gps = await createEquipoGps(data);
+const createNewEquipoGps = async (_, { data }, { user }) => {
+    const dataComplete = {
+        ...data,
+        user: `${user._id}`,
+    };
+    const gps = await createEquipoGps(dataComplete);
     return gps;
 };
 

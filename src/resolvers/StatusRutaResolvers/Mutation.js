@@ -1,7 +1,11 @@
 const { createStatusRuta, updateStatusRuta, deleteStatusRuta } = require('../../services/StatusRutaService');
 
-const createNewStatusRuta = async (_, { data }) => {
-    const status_ruta = await createStatusRuta(data);
+const createNewStatusRuta = async (_, { data }, { user }) => {
+    const dataComplete = {
+        ...data,
+        user: `${user._id}`
+    };
+    const status_ruta = await createStatusRuta(dataComplete);
     return status_ruta;
 };
 

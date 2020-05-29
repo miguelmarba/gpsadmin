@@ -1,7 +1,11 @@
 const { createCliente, updateCliente, deleteCliente } = require('../../services/ClienteService');
 
-const createNewCliente = async (_, { data }) => {
-    const cliente = await createCliente(data);
+const createNewCliente = async (_, { data }, { user }) => {
+    const dataComplete = {
+        ...data,
+        user: `${user._id}`,
+    };
+    const cliente = await createCliente(dataComplete);
     return cliente;
 };
 

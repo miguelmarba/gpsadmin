@@ -1,7 +1,11 @@
 const { createCamion, updateCamion, deleteCamion } = require('../../services/CamionService');
 
-const createNewCamion = async (_, { data }) => {
-    const camion = await createCamion(data);
+const createNewCamion = async (_, { data }, { user }) => {
+    const dataComplete = {
+        ...data,
+        user: `${user._id}`,
+    };
+    const camion = await createCamion(dataComplete);
     return camion;
 };
 

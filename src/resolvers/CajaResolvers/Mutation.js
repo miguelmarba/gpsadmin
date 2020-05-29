@@ -1,7 +1,11 @@
 const { createCaja, updateCaja, deleteCaja } = require('../../services/CajaService');
 
-const createNewCaja = async (_, { data }) => {
-    const caja = await createCaja(data);
+const createNewCaja = async (_, { data }, { user }) => {
+    const dataComplete = {
+        ...data,
+        user: `${user._id}`,
+    };
+    const caja = await createCaja(dataComplete);
     return caja;
 };
 

@@ -92,6 +92,7 @@ type User {
     birth_date: String!
     gender:GENDERS
     profile_pic:URL!
+    user: User
 }
 
 input UserInput{
@@ -144,6 +145,7 @@ type Cliente {
     direccion: String
     profile_pic:URL!
     rutas: [Ruta]!
+    user: User
 }
 
 input ClienteInput {
@@ -184,6 +186,7 @@ type Operador {
     birth_date: String
     gender:GENDERS
     profile_pic:URL
+    user: User
 }
 
 input OperadorInput{
@@ -222,6 +225,7 @@ type LineaTransporte {
     georeferenciax:String
     georeferenciay:String
     direccion:String
+    user: User
 }
 
 input LineaTransporteInput {
@@ -255,6 +259,7 @@ type EquipoGps {
     marca: String!
     modelo: String!
     identificador: String
+    user: User
 }
 
 input EquipoGpsInput {
@@ -300,6 +305,7 @@ type Camion {
     color: String
     cuenta_espejo: String
     tipo_unidad: TIPOUNIDAD
+    user: User
 }
 
 input CamionInput {
@@ -326,6 +332,7 @@ type Caja {
     descripcion: String!
     placas: String!
     placas_americanas: String
+    user: User
 }
 
 input CajaInput {
@@ -346,6 +353,7 @@ type StatusRuta {
     nombre: String!
     descripcion: String!
     color: String
+    user: User
 }
 
 input StatusRutaInput {
@@ -426,6 +434,7 @@ type Perfil {
     _id: ID!
     nombre: String!
     descripcion: String!
+    user: User
 }
 
 input PerfilInput {
@@ -450,6 +459,7 @@ type Ubicacion {
     pais: String
     georeferenciax: String
     georeferenciay: String
+    user: User
 }
 
 input UbicacionInput {

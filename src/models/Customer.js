@@ -23,6 +23,10 @@ const CustomerSchema = new Schema({
     telefono: {
         type: String,
         required: false
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'user',
     }
 }, {
     timestamps: true

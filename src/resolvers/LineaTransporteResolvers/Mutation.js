@@ -1,7 +1,11 @@
 const { createLineaTransporte, updateLineaTransporte, deleteLineaTransporte } = require('../../services/LineaTransporteService');
 
-const createNewLineaTransporte = async (_, { data }) => {
-    const linea = await createLineaTransporte(data);
+const createNewLineaTransporte = async (_, { data }, { user }) => {
+    const dataComplete = {
+        ...data,
+        user: `${user._id}`,
+    };
+    const linea = await createLineaTransporte(dataComplete);
     return linea;
 };
 

@@ -43,6 +43,10 @@ const LineaTransporteSchema = new Schema({
     is_active: {
         type: Boolean,
         default: true
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'user',
     }
 }, {
     timestamps: true

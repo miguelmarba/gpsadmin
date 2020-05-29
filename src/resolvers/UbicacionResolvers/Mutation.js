@@ -1,7 +1,11 @@
 const { createUbicacion, updateUbicacion, deleteUbicacion } = require('../../services/UbicacionService');
 
-const createNewUbicacion = async (_, { data }) => {
-    const caja = await createUbicacion(data);
+const createNewUbicacion = async (_, { data }, { user }) => {
+    const dataComplete = {
+        ...data,
+        user: `${user._id}`,
+    };
+    const caja = await createUbicacion(dataComplete);
     return caja;
 };
 

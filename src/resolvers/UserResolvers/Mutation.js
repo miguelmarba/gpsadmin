@@ -1,9 +1,13 @@
 const { createUser, updateUser, deleteUser } = require('../../services/UserService');
 const authenticate = require('../../utils/authenticate');
 
-const createNewUser = async (_, { data }) => {
-    const user = await createUser(data);
-    return user;
+const createNewUser = async (_, { data }, { user }) => {
+    const dataComplete = {
+        ...data,
+        user: `${user._id}`,
+    };
+    const usuario = await createUser(dataComplete);
+    return usuario;
 };
 
 const updateOneUser = async (_, { id, data }) => {
