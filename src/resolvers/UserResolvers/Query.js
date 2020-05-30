@@ -1,3 +1,5 @@
+const nodemailer = require('nodemailer');
+
 const { getAllUsers, getOneUser } = require('../../services/UserService');
 
 const getUsers = async () => {
@@ -16,8 +18,38 @@ const me = async (_, __, { user }) => {
     return user;
 };
 
+const bienvenido = async () => {
+    let transport = nodemailer.createTransport({
+        host: 'smtp.mailtrap.io',
+        port: 2525,
+        auth: {
+            user: '470cae4a62f024',
+            pass: '99136de264fa39'
+        }
+    });
+    const message = {
+        from: 'miguel_marba@hotmail.com',
+        to: 'miguelmarbaa@gmail.com',
+        subject: 'Bienvenido a Tesigo',
+        text: 'Have the most fun you can in a monitor. Get your Ruta today!'
+    };
+    
+    transport.sendMail(message, function(err, info) {
+        if(err){
+            console.log('Error al enviar el correo');
+            console.log(err);
+            return 'Error al enviar el correo';
+        } else {
+            console.log('Envio de correo exitoso');
+            console.log(info);
+            return 'Envio de correo exitoso';
+        }
+    });
+};
+
 module.exports = {
     getUsers,
     getSingleUser,
-    me
+    me,
+    bienvenido
 };

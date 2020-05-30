@@ -38,6 +38,7 @@ type Query {
     getTracking: [Tracking]!
     getSingleTracking(id:ID!): [Tracking]!
     getSearchTrackingByDates(begin:String!, end:String!): [Tracking]!
+    bienvenido:String
 }
 
 type Mutation {
