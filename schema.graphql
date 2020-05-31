@@ -35,6 +35,7 @@ type Query {
     getSingleRuta(id:ID!): Ruta!
     getSearchRuta(nombre:String!): [Ruta]!
     getSearchRutasByDates(begin:String!, end:String!): [Ruta]!
+    getSearchRutasByStatus(status:ID): [Ruta]!
     getTracking: [Tracking]!
     getSingleTracking(id:ID!): [Tracking]!
     getSearchTrackingByDates(begin:String!, end:String!): [Tracking]!

@@ -1,4 +1,4 @@
-const { getAllRutas, getOneRuta, getRutaByFolio, getRutasByDates } = require('../../services/RutaService');
+const { getAllRutas, getOneRuta, getRutaByFolio, getRutasByDates, getAllRutasByStatus } = require('../../services/RutaService');
 
 const getRutas = async () => {
     const rutas = await getAllRutas();
@@ -22,9 +22,19 @@ const getSearchRutasByDates = async (_, { begin, end }) => {
     return rutas;
 };
 
+const getSearchRutasByStatus = async (_, { status }) => {
+    if(!status){
+        return [];
+    }
+    const rutas = await getAllRutasByStatus(status);
+    if(!rutas) throw new Error('No results');
+    return rutas;
+};
+
 module.exports = {
     getRutas,
     getSingleRuta,
     getSearchRuta,
-    getSearchRutasByDates
+    getSearchRutasByDates,
+    getSearchRutasByStatus
 };

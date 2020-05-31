@@ -1,4 +1,5 @@
 const { Ruta } = require('../models');
+const ObjectId = require('mongoose').Types.ObjectId; 
 
 const createRuta = async (data) => {
     const ruta = Ruta.create(data);
@@ -6,6 +7,22 @@ const createRuta = async (data) => {
 };
 const getAllRutas = () => Ruta.find({
     is_active: true
+}).populate('cliente').
+    populate('origen').
+    populate('destino').
+    populate('linea_transporte').
+    populate('operador').
+    populate('camion').
+    populate('caja').
+    populate('equipo_gps').
+    populate('status_ruta').
+    populate('user');
+
+const getAllRutasByStatus = (status) => Ruta.find({
+    $and:[
+        {is_active: true},
+        {status_ruta: ObjectId(status)}
+    ]
 }).populate('cliente').
     populate('origen').
     populate('destino').
@@ -64,5 +81,6 @@ module.exports = {
     deleteRuta,
     updateRuta,
     getRutaByFolio,
-    getRutasByDates
+    getRutasByDates,
+    getAllRutasByStatus
 };
