@@ -5,10 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "bcrypt": "^4.0.1",
+    "cross-blob": "^1.2.3",
     "dotenv": "^8.2.0",
+    "exceljs": "^3.9.0",
     "graphql-scalars": "^1.1.0",
     "graphql-yoga": "^1.18.3",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.26.0",
     "mongoose": "^5.9.7",
     "nodemailer": "^6.4.8",
     "nodemon": "^2.0.2"

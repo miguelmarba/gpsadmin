@@ -1,6 +1,7 @@
 scalar EmailAddress
 scalar URL
 scalar Upload
+scalar JSON
 directive @auth on FIELD_DEFINITION | FIELD
 
 type Query {
@@ -40,6 +41,7 @@ type Query {
     getSingleTracking(id:ID!): [Tracking]!
     getSearchTrackingByDates(begin:String!, end:String!): [Tracking]!
     bienvenido:String
+    getExcelRutasByStatus(status:ID): JSON
 }
 
 type Mutation {
