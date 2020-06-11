@@ -42,6 +42,7 @@ type Query {
     getSearchTrackingByDates(begin:String!, end:String!): [Tracking]!
     bienvenido:String
     getExcelRutasByStatus(status:ID): JSON
+    getSingleUserByEmail(email:EmailAddress!): User!
 }
 
 type Mutation {

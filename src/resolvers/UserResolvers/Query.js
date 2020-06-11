@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-const { getAllUsers, getOneUser } = require('../../services/UserService');
+const { getAllUsers, getOneUser, getUserByEmail } = require('../../services/UserService');
 
 const getUsers = async () => {
     const users = await getAllUsers();
@@ -9,6 +9,12 @@ const getUsers = async () => {
 
 const getSingleUser = async (_, { id }) => {
     const user = await getOneUser(id);
+    if(!user) throw new Error('User not exists');
+    return user;
+};
+
+const getSingleUserByEmail = async (_, { email }) => {
+    const user = await getUserByEmail(email);
     if(!user) throw new Error('User not exists');
     return user;
 };
@@ -51,5 +57,6 @@ module.exports = {
     getUsers,
     getSingleUser,
     me,
-    bienvenido
+    bienvenido,
+    getSingleUserByEmail
 };
