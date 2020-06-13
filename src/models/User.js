@@ -42,6 +42,10 @@ const UserSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'user',
+    },
+    rol:{
+        type: String,
+        enum: ['ADMINISTRADOR', 'MONITORISTA', 'CUSTODIO', 'O'] 
     }
 }, {
     timestamps: true

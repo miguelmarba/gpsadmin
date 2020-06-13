@@ -5,44 +5,44 @@ scalar JSON
 directive @auth on FIELD_DEFINITION | FIELD
 
 type Query {
-    getUsers: [User]!
-    getSingleUser(id:ID!): User!
+    getUsers: [User]!@auth
+    getSingleUser(id:ID!): User!@auth
     me: User!@auth
-    getClientes: [Cliente]!
-    getSingleCliente(id:ID!): Cliente!
-    getSearchCliente(nombre:String!): [Cliente]!
-    getOperadores: [Operador]!
-    getSingleOperador(id:ID!): Operador!
-    getSearchOperador(nombre:String!): [Operador]!
-    getLineaTransportes: [LineaTransporte]!
-    getSingleLineaTransporte(id:ID!): LineaTransporte!
-    getSearchLineaTransporte(nombre:String!): [LineaTransporte]!
-    getEquipoGps: [EquipoGps]!
-    getSingleEquipoGps(id:ID!): EquipoGps!
-    getSearchEquipoGps(descripcion:String!): [EquipoGps]!
-    getCamiones: [Camion]!
-    getSingleCamion(id:ID!): Camion!
-    getSearchCamion(descripcion:String!): [Camion]!
-    getCajas: [Caja]!
-    getSingleCaja(id:ID!): Caja!
-    getSearchCaja(descripcion:String!): [Caja]!
-    getStatusRuta: [StatusRuta]!
-    getSingleStatusRuta(id:ID!): StatusRuta!
-    getSearchStatusRuta(descripcion:String!): StatusRuta!
-    getUbicaciones: [Ubicacion]!
-    getSingleUbicacion(id:ID!): Ubicacion!
-    getSearchUbicacion(nombre:String!): [Ubicacion]!
-    getRutas: [Ruta]!
-    getSingleRuta(id:ID!): Ruta!
-    getSearchRuta(nombre:String!): [Ruta]!
-    getSearchRutasByDates(begin:String!, end:String!): [Ruta]!
-    getSearchRutasByStatus(status:ID): [Ruta]!
-    getTracking: [Tracking]!
-    getSingleTracking(id:ID!): [Tracking]!
-    getSearchTrackingByDates(begin:String!, end:String!): [Tracking]!
-    bienvenido:String
-    getExcelRutasByStatus(status:ID): JSON
-    getSingleUserByEmail(email:EmailAddress!): User!
+    getClientes: [Cliente]!@auth
+    getSingleCliente(id:ID!): Cliente!@auth
+    getSearchCliente(nombre:String!): [Cliente]!@auth
+    getOperadores: [Operador]!@auth
+    getSingleOperador(id:ID!): Operador!@auth
+    getSearchOperador(nombre:String!): [Operador]!@auth
+    getLineaTransportes: [LineaTransporte]!@auth
+    getSingleLineaTransporte(id:ID!): LineaTransporte!@auth
+    getSearchLineaTransporte(nombre:String!): [LineaTransporte]!@auth
+    getEquipoGps: [EquipoGps]!@auth
+    getSingleEquipoGps(id:ID!): EquipoGps!@auth
+    getSearchEquipoGps(descripcion:String!): [EquipoGps]!@auth
+    getCamiones: [Camion]!@auth
+    getSingleCamion(id:ID!): Camion!@auth
+    getSearchCamion(descripcion:String!): [Camion]!@auth
+    getCajas: [Caja]!@auth
+    getSingleCaja(id:ID!): Caja!@auth
+    getSearchCaja(descripcion:String!): [Caja]!@auth
+    getStatusRuta: [StatusRuta]!@auth
+    getSingleStatusRuta(id:ID!): StatusRuta!@auth
+    getSearchStatusRuta(descripcion:String!): StatusRuta!@auth
+    getUbicaciones: [Ubicacion]!@auth
+    getSingleUbicacion(id:ID!): Ubicacion!@auth
+    getSearchUbicacion(nombre:String!): [Ubicacion]!@auth
+    getRutas: [Ruta]!@auth
+    getSingleRuta(id:ID!): Ruta!@auth
+    getSearchRuta(nombre:String!): [Ruta]!@auth
+    getSearchRutasByDates(begin:String!, end:String!): [Ruta]!@auth
+    getSearchRutasByStatus(status:ID): [Ruta]!@auth
+    getTracking: [Tracking]!@auth
+    getSingleTracking(id:ID!): [Tracking]!@auth
+    getSearchTrackingByDates(begin:String!, end:String!): [Tracking]!@auth
+    bienvenido:String@auth
+    getExcelRutasByStatus(status:ID): JSON@auth
+    getSingleUserByEmail(email:EmailAddress!): User!@auth
 }
 
 type Mutation {
@@ -98,6 +98,7 @@ type User {
     gender:GENDERS
     profile_pic:URL!
     user: User
+    rol:ROLES
 }
 
 input UserInput{
@@ -110,6 +111,7 @@ input UserInput{
     birth_date:String
     gender:GENDERS
     profile_pic:URL
+    rol:ROLES
 }
 
 input UserInputUpdate{
@@ -122,6 +124,7 @@ input UserInputUpdate{
     birth_date:String
     gender:GENDERS
     profile_pic:URL
+    rol:ROLES
     is_active: Boolean
 }
 
@@ -134,6 +137,13 @@ enum GENDERS{
 enum TIPOPERSONA{
     FISICA
     MORAL
+    O
+}
+
+enum ROLES{
+    ADMINISTRADOR
+    MONITORISTA
+    CUSTODIO
     O
 }
 
