@@ -23,6 +23,8 @@ const getSearchRuta = async (_, { folio }) => {
 };
 
 const getSearchRutasByDates = async (_, { begin, end }) => {
+    begin = begin + 'T00:00:00.000Z';
+    end = end + 'T23:59:00.000Z';
     const rutas = await getRutasByDates(begin, end);
     return rutas;
 };
