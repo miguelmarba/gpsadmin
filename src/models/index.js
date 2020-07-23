@@ -9,6 +9,7 @@ const StatusRuta = require('./StatusRuta');
 const Ruta = require('./Ruta');
 const Ubicacion = require('./Ubicacion');
 const Tracking = require('./Tracking');
+const RutaLastSeen = require('./RutaLastSeen');
 
 module.exports = {
     Users,
@@ -21,5 +22,6 @@ module.exports = {
     StatusRuta,
     Ruta,
     Ubicacion,
-    Tracking
+    Tracking,
+    RutaLastSeen
 };

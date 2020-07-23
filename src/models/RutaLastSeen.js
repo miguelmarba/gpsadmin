@@ -2,11 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const RutaLastViewSchema = new Schema({
-    fecha_consulta: {
-        type: String,
-        required: false
-    },
+const RutaLastSeenSchema = new Schema({
     ruta: {
         type: Schema.Types.ObjectId,
         ref: 'ruta'
@@ -14,6 +10,10 @@ const RutaLastViewSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'user',
+    },
+    fecha_consulta: {
+        type: String,
+        required: false
     },
     is_active: {
         type: Boolean,
@@ -23,4 +23,4 @@ const RutaLastViewSchema = new Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('ruta_last_view', RutaLastViewSchema);
+module.exports = mongoose.model('ruta_last_seen', RutaLastSeenSchema);

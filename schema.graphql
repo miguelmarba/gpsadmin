@@ -43,6 +43,9 @@ type Query {
     bienvenido:String@auth
     getExcelRutasByStatus(status:ID): JSON@auth
     getSingleUserByEmail(email:EmailAddress!): User!@auth
+    getRutaLastSeen: [RutaLastSeen]!@auth
+    getRutasLastSeenByUser: [RutaLastSeen]!@auth
+    getRutasLastSeenByDates(begin:String!, end:String!): [RutaLastSeen]!@auth
 }
 
 type Mutation {
@@ -80,6 +83,9 @@ type Mutation {
     createNewTracking(data:TrackingInput!): Tracking!@auth
     updateOneTracking(id:ID!, data: TrackingInputUpdate): Tracking!@auth
     deleteOneTracking(id:ID!): Tracking!@auth
+    createNewRutaLastSeen(data:RutaLastSeenInput!): RutaLastSeen!@auth
+    updateOneRutaLastSeen(id:ID!, data: RutaLastSeenInputUpdate): RutaLastSeen!@auth
+    deleteOneRutaLastSeen(id:ID!): RutaLastSeen!@auth
 }
 
 type Auth {
@@ -404,6 +410,7 @@ type Ruta {
     status_ruta: StatusRuta
     user: User
     tracking:[Tracking]
+    last_seen:[RutaLastSeen]
 }
 
 input RutaInput {
@@ -509,8 +516,8 @@ type Tracking {
     user: User
     status_ruta: StatusRuta
     comentarios: String
-    is_active: Boolean,
-    created: String,
+    is_active: Boolean
+    created: String
     updated: String
 }
 
@@ -525,5 +532,22 @@ input TrackingInputUpdate {
     ruta: ID
     status_ruta: ID
     comentarios: String
+    is_active: Boolean
+}
+
+type RutaLastSeen {
+    _id: ID!
+    ruta: Ruta
+    user: User
+    fecha_consulta: String
+    is_active: Boolean
+}
+
+input RutaLastSeenInput {
+    ruta: ID!
+}
+
+input RutaLastSeenInputUpdate {
+    fecha_consulta: String
     is_active: Boolean
 }

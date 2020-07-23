@@ -80,6 +80,10 @@ const RutaSchema = new Schema({
     tracking:[{
         type: Schema.Types.ObjectId,
         ref:'tracking'
+    }],
+    last_seen:[{
+        type: Schema.Types.ObjectId,
+        ref:'ruta_last_seen'
     }]
 }, {
     timestamps: true
