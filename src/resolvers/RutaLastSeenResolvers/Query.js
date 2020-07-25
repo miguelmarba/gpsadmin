@@ -10,7 +10,6 @@ const getRutasLastSeenByUser = async (_, __, { user }) => {
     if(user.rol == 'ADMINISTRADOR'){
         ruta = await getAllRutaLastSeen();
     } else {
-        console.log(user_id);
         ruta = await getAllRutaLastSeenByUser(user_id);
     }
     if(!ruta) throw new Error('Ruta not exists');

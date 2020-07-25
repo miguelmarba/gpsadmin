@@ -42,12 +42,8 @@ const bienvenido = async () => {
     
     transport.sendMail(message, function(err, info) {
         if(err){
-            console.log('Error al enviar el correo');
-            console.log(err);
             return 'Error al enviar el correo';
         } else {
-            console.log('Envio de correo exitoso');
-            console.log(info);
             return 'Envio de correo exitoso';
         }
     });
