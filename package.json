@@ -1,7 +1,7 @@
 {
-  "name": "gpsadmin",
+  "name": "tesigo",
   "version": "1.0.0",
-  "description": "BackeEnd de GMSAdmin",
+  "description": "BackeEnd de TeSigo",
   "main": "index.js",
   "dependencies": {
     "bcrypt": "^4.0.1",
@@ -18,8 +18,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "test": "set NODE_ENV=test && jest",
+    "dev": "nodemon index.js -f *graphql",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
