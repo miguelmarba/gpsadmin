@@ -4,15 +4,35 @@ const fs = require('fs');
 const Blob = require('cross-blob');
 
 const { getAllRutas, getOneRuta, getRutaByFolio, getRutasByDates, getAllRutasByStatus } = require('../../services/RutaService');
+const { createRutaLastSeen } = require('../../services/RutaLastSeenService');
 
 const getRutas = async () => {
     const rutas = await getAllRutas();
     return rutas;
 };
 
-const getSingleRuta = async (_, { id }) => {
+const getSingleRuta = async (_, { id }, { user }) => {
     const ruta = await getOneRuta(id);
     if(!ruta) throw new Error('Ruta not exists');
+    // Guardamos el usuario que solicito ver el detalle de la ruta
+    let date_ob = new Date();
+    // current date
+    let date = ('0' + date_ob.getDate()).slice(-2);
+    let month = ('0' + (date_ob.getMonth() + 1)).slice(-2);
+    let year = date_ob.getFullYear();
+    let hours = date_ob.getHours();
+    let minutes = date_ob.getMinutes();
+    const fecha_string = year + '-' + month + '-' + date + 'T' + hours + ':' + minutes + ':00';
+    const dataComplete = {
+        ruta: id,
+        user: `${user._id}`,
+        fecha_consulta: fecha_string
+    };
+    
+    const ruta_last_seen = await createRutaLastSeen(dataComplete);
+    ruta.last_seen.push(ruta_last_seen._id);
+    ruta.save();
+
     return ruta;
 };
 
