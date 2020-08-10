@@ -67,16 +67,16 @@ type Mutation {
     deleteOneEquipoGps(id:ID!): String!@auth
     createNewCamion(data:CamionInput!): Camion!@auth
     updateOneCamion(id:ID!, data: CamionInputUpdate): Camion!@auth
-    deleteOneCamion(id:ID!): Camion!@auth
+    deleteOneCamion(id:ID!): String!@auth
     createNewCaja(data:CajaInput!): Caja!@auth
     updateOneCaja(id:ID!, data: CajaInputUpdate): Caja!@auth
-    deleteOneCaja(id:ID!): Caja!@auth
+    deleteOneCaja(id:ID!): String!@auth
     createNewStatusRuta(data:StatusRutaInput!): StatusRuta!@auth
     updateOneStatusRuta(id:ID!, data: StatusRutaInputUpdate): StatusRuta!@auth
     deleteOneStatusRuta(id:ID!): StatusRuta!@auth
     createNewUbicacion(data:UbicacionInput!): Ubicacion!@auth
     updateOneUbicacion(id:ID!, data: UbicacionInputUpdate): Ubicacion!@auth
-    deleteOneUbicacion(id:ID!): Ubicacion!@auth
+    deleteOneUbicacion(id:ID!): String!@auth
     createNewRuta(data:RutaInput!): Ruta!@auth
     updateOneRuta(id:ID!, data: RutaInputUpdate): Ruta!@auth
     deleteOneRuta(id:ID!): Ruta!@auth
