@@ -1,5 +1,6 @@
 const { createTrack, updateTrack, deleteTrack, getOneTracking } = require('../../services/TrackingService');
 const { getOneRuta } = require('../../services/RutaService');
+const { getOneStatusRuta } = require('../../services/StatusRutaService');
 
 const createNewTracking = async (_, { data }, { user }) => {
     const dataComplete = {
@@ -15,6 +16,10 @@ const createNewTracking = async (_, { data }, { user }) => {
     ruta.tracking.push(tracking._id);
     if(data.status_ruta){
         ruta.status_ruta = data.status_ruta;
+        const status_ruta = await getOneStatusRuta(data.status_ruta);
+        if(status_ruta.nombre == "Arribo"){
+            ruta.fecha_llegada = new Date();
+        }
     }
     ruta.save();
     const populateTracking = await getOneTracking(tracking._id);
