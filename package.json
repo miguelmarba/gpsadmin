@@ -4,7 +4,7 @@
   "description": "BackeEnd de TeSigo",
   "main": "index.js",
   "dependencies": {
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "cross-blob": "^1.2.3",
     "dotenv": "^8.2.0",
     "exceljs": "^3.9.0",
